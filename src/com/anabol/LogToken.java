@@ -1,6 +1,6 @@
 package com.anabol;
 
-import com.anabol.webserver.HttpMethod;
+import com.anabol.webserver.entity.HttpMethod;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

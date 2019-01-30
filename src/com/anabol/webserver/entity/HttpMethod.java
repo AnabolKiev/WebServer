@@ -1,18 +1,10 @@
-package com.anabol.webserver;
+package com.anabol.webserver.entity;
 
 public enum HttpMethod {
     POST("POST"),
     GET("GET");
 
     private final String name;
-
-    HttpMethod(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public static HttpMethod getByName(String name) {
         HttpMethod[] httpMethods = HttpMethod.values();
@@ -32,5 +24,13 @@ public enum HttpMethod {
             }
         }
         return false;
+    }
+
+    HttpMethod(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

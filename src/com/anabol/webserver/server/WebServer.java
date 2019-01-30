@@ -1,4 +1,4 @@
-package com.anabol.webserver;
+package com.anabol.webserver.server;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -31,8 +31,9 @@ public class WebServer {
             while (true) {
                 try (Socket socket = serverSocket.accept();
                      BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
-                    RequestHandler requestHandler = new RequestHandler(webAppPath, reader, writer);
+                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                     OutputStream outputStream = new BufferedOutputStream(socket.getOutputStream())) {
+                    RequestHandler requestHandler = new RequestHandler(webAppPath, reader, writer, outputStream);
                     requestHandler.handle();
                 } catch (SocketException e) {
                     e.printStackTrace();

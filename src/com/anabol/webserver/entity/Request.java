@@ -1,4 +1,4 @@
-package com.anabol.webserver;
+package com.anabol.webserver.entity;
 
 import java.util.Map;
 
